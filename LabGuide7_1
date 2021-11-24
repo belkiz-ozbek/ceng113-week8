@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double calculate(int credit, int year){
+	double tuition = 0.0;
+			
+			
+	if(credit<12){
+		tuition=credit*525;
+	}
+	else if(credit>12){
+		tuition=4500+(credit-12)*750;
+	}
+			
+	if(year==4){
+		tuition=0.85*tuition;
+	}
+			
+	return tuition;
+}
+	
+int main(int argc, char *argv[]) {
+	
+	int id,year,credit;
+	
+	double tuition;
+	printf("Enter the student id(-1 to exit): ");
+	scanf("%d",&id);
+	
+	while(id!=-1){
+		printf("Enter the credit: ");
+		scanf("%d",&credit);
+
+		printf("Enter year: ");
+		scanf("%d",&year);
+	
+		tuition=calculate(credit,year);
+	
+		printf("Student with id %d will pay tuition %.2f $\n", id, tuition);
+	
+	printf("Enter the student id(-1 to exit): ");
+	scanf("%d",&id);
+	}	
+	
+	
+}
